@@ -75,3 +75,68 @@ const buildStringFromArray = (wordArray) => {
 const filteredArray = filterKWords(words);
 const sentence = buildStringFromArray(filteredArray);
 console.log(sentence);
+
+const svenFishing = (odds) => {
+    // this is to convert the odds to a decimal if they were not already inputed in as a decimal percentage
+    if (odds > 1) {
+        odds = odds/100;
+    }
+    const fishResult = Math.random();
+    //if the result is less than the decimal version of the odds...it has hit the threshold
+    if (fishResult < odds) {
+        console.log("Sven hooked a tuna! :)");
+    } else {
+        console.log("Sven came up empty-handed. :(");
+    }
+}
+
+svenFishing(33);
+svenFishing(33);
+svenFishing(90);
+
+const orderMeal = (entree, dessert, drink, side) => {
+    return {
+        sandwich: entree,
+        side: side,
+        drink: drink,
+        dessert: dessert
+    }
+}
+
+const takeOutBag = orderMeal("Ultimate Slammer", "Fudge sundae", "Mr. Pepper", "Potato wedges");
+console.log(takeOutBag);
+
+const takeOutTrash = (person) => {
+    return `${person.firstName} ${person.lastName} took out the trash`;
+}
+
+const doDishes = (person) => {
+    return `${person.firstName} ${person.lastName} cleaned the dishes`;
+}
+
+const feedCats = (person) => {
+    return `${person.firstName} ${person.lastName} fed the cats`;
+}
+
+const vacuumFloors = (person) => {
+    return `${person.firstName} ${person.lastName} vacuumed the floors`;
+}
+
+const sweptTheDeck = (person) => {
+    return `${person.firstName} ${person.lastName} swept the deck`;
+}
+
+const cleanBathrooms = (person) => {
+    return `${person.firstName} ${person.lastName} cleaned the bathrooms`;
+}
+
+const dayPlanner = (firstChore, secondChore, thirdChore, person, day) => {
+    return `On ${day}, ${firstChore(person)}, and ${secondChore(person)}, and ${thirdChore(person)}.`;
+}
+
+const fred = {
+    firstName: "Fred",
+    lastName: "Schmidt"
+}
+
+console.log(dayPlanner(vacuumFloors, feedCats, cleanBathrooms, fred, "Saturday"));
